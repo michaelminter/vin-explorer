@@ -1,6 +1,6 @@
 {
-  "name": "VIN List",
-  "description": "Grabs a list of vehicle information.",
+  "name": "VIN Explorer",
+  "description": "Provides a list of vehicle information.",
   "version": "0.0.1",
   "manifest_version": 3,
 
