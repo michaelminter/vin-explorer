@@ -1,4 +1,4 @@
-# VIN List Chrome Extension
+# VIN Explorer
 A Google Chrome extension that makes a call to Auto Trader's public API and displays vehicle information; As provided by the API response.
 
 <p align="center">
