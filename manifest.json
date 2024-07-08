@@ -1,0 +1,18 @@
+{
+  "name": "VIN List",
+  "description": "Grabs a list of vehicle information.",
+  "version": "0.0.1",
+  "manifest_version": 3,
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "icons": {
+    "128": "alt_icon.png"
+  },
+
+  "host_permissions": ["*://www.autotrader.com/*", "*://autotrader.com/*"],
+
+  "permissions": ["storage"]
+}
