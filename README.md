@@ -2,13 +2,13 @@
 A simple Google Chrome extension that makes a call to Auto Trader's public API and displays a JSON object of vehicle information and VINs; As provided by the API response.
 
 <p align="center">
-  <img src="https://github.com/michaelminter/vin-list-extension/blob/master/screenshot.png?raw=true" alt="Screenshot of the extension" width="500px" style="max-width: 100%">
+  <img src="https://github.com/michaelminter/vin-explorer/blob/master/assets/screenshots/screenshot.png?raw=true" alt="Screenshot of the extension" width="500px" style="max-width: 100%">
 </p>
 
 ## Privacy is important!
 
 * Data is only saved locally to the user's browser for UX purposes and to prevent API abuse due to user error.
-* The extension makes a whitehat API call, which depends on an already authenticated session with VRChat.com
+* The extension makes a whitehat API call
 * No data is ever sent to any 3rd-party servers. You must manually copy/paste from the generated list, if you so choose to.
 
 ## Data saved locally
