@@ -2,7 +2,7 @@
 A simple Google Chrome extension that makes a call to Auto Trader's public API and displays a JSON object of vehicle information and VINs; As provided by the API response.
 
 <p align="center">
-  <img src="https://github.com/michaelminter/vin-explorer/blob/master/assets/screenshots/screenshot.png?raw=true" alt="Screenshot of the extension" width="500px" style="max-width: 100%">
+  <img src="https://github.com/michaelminter/vin-explorer/blob/main/assets/screenshots/screenshot.png?raw=true" alt="Screenshot of the extension" width="500px" style="max-width: 100%">
 </p>
 
 ## Privacy is important!
