@@ -69,8 +69,10 @@
       zipCodeField.classList.remove('error');
     }
 
-    // Create an array of 0 - 290, in increments of 10.
-    const pages = Array(30).fill(0).map((e, i) => i * 10);
+    // Create an array of 0 - 290 by increments of 10.
+    const recordsPerPage = 10;
+    const pages = Array(30).fill(0).map((e, i) => i * recordsPerPage);
+    const randomPage = pages[Math.floor(Math.random() * pages.length)];
 
     // const url = 'https://autotrader.com/rest/searchresults/base?' +
     const url = 'https://www.autotrader.com/rest/lsc/listing?' +
@@ -80,14 +82,14 @@
       // 'vehicleStyleCode=SEDAN&' +
       // 'maxMileage=60000&' +
       // 15000 (under), 30000, 45000, 60000, 75000, 100000, 150000, 200000, 200001 (over), 0 (any)
-      'mileage=100000' +
+      'mileage=100000&' +
       'maxPrice=30000&' +
       'zip=' + zipCode + '&' +
       // 10, 25, 50, 75, 100, 200, 300, 400, 500, 0 (Nationwide)
       'searchRadius=0&' +
       'sortBy=relevance&' +
-      'numRecords=10&' +
-      'firstRecord=' + pages[Math.floor(Math.random() * pages.length)];
+      'numRecords=' + recordsPerPage + '&' +
+      'firstRecord=' + randomPage;
 
     // Fetch data
     const response = await fetch(url);
@@ -168,10 +170,53 @@
     color.className = 'color';
     color.style.backgroundColor = listing.color;
 
+    let priceTooltip = document.createElement('span');
+    priceTooltip.className = 'tooltip-left';
+    priceTooltip.textContent = listing.price;
+
+    let priceIcon = document.createElement('span');
+    priceIcon.className = 'price tooltip';
+    priceIcon.textContent = '\u{0024}';
+    priceIcon.appendChild(priceTooltip);
+
+    let odometerTooltip = document.createElement('span');
+    odometerTooltip.className = 'tooltip-left';
+    odometerTooltip.textContent = listing.mileage;
+
+    // let odometerImage = document.createElement('img');
+    // odometerImage.className = 'odometer-icon'
+    // odometerImage.src = '/assets/icons/odometer.svg';
+
+    let odometerIcon = document.createElement('span');
+    odometerIcon.className = 'mileage tooltip';
+    // odometerIcon.textContent = '\u{1F55B}'; // clock
+    // odometerIcon.textContent = '\u{24D3}'; // (d)
+    odometerIcon.textContent = '\u{33D5}'; // mil
+    odometerIcon.appendChild(odometerTooltip);
+
+    let blueBookTooltip = document.createElement('span');
+    blueBookTooltip.className = 'tooltip-left';
+    blueBookTooltip.textContent = listing.kbbVehicleId;
+
+    let blueBookIcon = document.createElement('span');
+    blueBookIcon.className = 'blue-book-icon tooltip';
+    // blueBookIcon.textContent = '\u{1F4D8}'; // blue book
+    blueBookIcon.textContent = '\u{2116}'; // numero
+    // blueBookIcon.textContent = '\u{1F194}';
+    blueBookIcon.appendChild(blueBookTooltip);
+
+    let titleSeparator = document.createElement('span');
+    titleSeparator.className = 'title-separator';
+    titleSeparator.textContent = '|';
+
     let title = document.createElement('div');
-    title.textContent = [listing.title, listing.price, listing.mileage, ' '].join(' | ');
+    title.textContent = [listing.title].join(' | ');
     title.className = 'title';
+    title.appendChild(titleSeparator);
     title.appendChild(color);
+    title.appendChild(priceIcon);
+    title.appendChild(odometerIcon);
+    if (listing.kbbVehicleId !== 0) title.appendChild(blueBookIcon);
 
     let vin = document.createElement('div');
     vin.textContent = listing.vin + ' \u2704'; // \u2713 = checkmark

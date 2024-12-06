@@ -3,11 +3,16 @@
 }
 
 body {
-  background: #617ab1;
+  /* background: #617ab1;
   background-image: url("./ai-generated-8233111_1280.png");
   background-size: cover;
   background-blend-mode: multiply;
-  background-position: right center;
+  background-position: right center; */
+
+  /* background: -webkit-linear-gradient(-45deg, #225e9e 0%, #712c69 100%);
+  background: linear-gradient(-45deg, #225e9e 0%, #712c69 100%); */
+
+  background-image: radial-gradient( circle farthest-corner at 40% 20%,  rgba(37,145,251,0.98) 0.1%, rgba(0,7,128,1) 99.8% );
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -76,13 +81,14 @@ h1 {
   box-shadow: inset 0 1px 0 rgb(18 38 63 / 15%);
   box-sizing: border-box;
   color: #fff;
+  cursor: pointer;
   font-size: 12px;
   font-weight: 500;
   height: 32px;
   letter-spacing: 0.25px;
   margin-left: auto;
   margin-top: -2px;
-  padding: 0 2em;
+  padding: 0 1.5em;
   text-shadow: none;
   text-transform: none;
   transition: all 0.1s linear;
@@ -218,11 +224,31 @@ p {
   margin: 0;
 }
 
+.title-separator {
+  margin: 0 0 0 1em;
+}
+
+.color {
+  margin: 0 0 0 0.5em;
+}
+
+.price {
+  margin-left: 0.5em;
+}
+
+.mileage {
+  margin-left: 0.5em;
+}
+
+.blue-book-icon {
+  margin-left: 0.5em;
+}
+
 footer {
   color: #95aac9;
   font-size: 12px;
   line-height: 1.25em;
-  padding: 16px 0 4px;
+  padding: 8px 0 8px;
 }
 
 #lastUpdated {
@@ -280,6 +306,7 @@ footer {
 
 /*https://www.w3schools.com/css/css_tooltip.asp*/
 .tooltip {
+  cursor: text;
   position: relative;
   display: inline-block;
 }
@@ -312,7 +339,35 @@ footer {
   border-color: transparent black transparent transparent;
 }
 
+.tooltip .tooltip-left {
+  visibility: hidden;
+  width: 80px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+
+  top: -4px;
+  left: -85px;
+}
+
+.tooltip .tooltip-left::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
+
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
+.tooltip:hover .tooltiptext, .tooltip:hover .tooltip-left {
   visibility: visible;
 }
